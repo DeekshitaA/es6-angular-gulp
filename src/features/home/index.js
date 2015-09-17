@@ -1,4 +1,5 @@
-import { register } from '../../register';
+import register from 'ng-register';
+
 import { config } from './home.config';
 import { HomeController } from './home.controller';
 import { HomeService } from './home.service';
