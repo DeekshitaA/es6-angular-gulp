@@ -1,14 +1,12 @@
 export class HomeService {
 	constructor($http, $cacheFactory) {
-		'ngInject';
-
 		this.$http = $http;
 		this.$cacheFactory = $cacheFactory;
 	}
 
 	data(fresh) {
 		if(fresh){
-			this.$cacheFactory.remove('/svc/home');
+			this.$cacheFactory('/svc/home').removeAll();
 		}
 
 		this.$http.get('/svc/home', {
@@ -19,12 +17,12 @@ export class HomeService {
 
 export class HomeController {
 	constructor(HomeService) {
-		'ngInject';
-
 		this.HomeService = HomeService;
 
 		HomeService.data(response => {
 			this.data = response;
 		});
+
+		this.name = 'world';
 	}
 }

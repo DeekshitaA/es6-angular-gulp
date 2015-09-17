@@ -27,7 +27,6 @@ gulp.task('scripts:bundle', function() {
             transform: [babelify]
         })
         .transform(babelify)
-        .transform(ngannotate)
         .bundle()
         .pipe(source('main.js'))
         .pipe(buffer())
@@ -37,7 +36,9 @@ gulp.task('scripts:bundle', function() {
             }
         }))
         .pipe(sourcemaps.init({loadMaps: true}))
-            .pipe(uglify())
+            .pipe(uglify({
+                mangle: false
+            }))
         .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest('dist/js'));
 });

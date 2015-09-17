@@ -3,6 +3,6 @@ module.exports = [[
     'clean',
     'scripts',
     'styles',
-    'views',
+    'html',
     'vendor'
 ]];

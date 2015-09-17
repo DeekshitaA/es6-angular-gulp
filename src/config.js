@@ -1,15 +1,11 @@
-export class Config{
-	constructor($routeProvider) {
-		'ngInject';
-
-	  	$routeProvider
-	    .when('/', {
-			templateUrl:'views/home.html',
-			controller:'homeController',
-			controllerAs:'home'
-	    })
-	    .otherwise({
-	    	redirectTo:'/'
-	    });
-	}
+export function config($routeProvider) {
+  	$routeProvider
+    .when('/', {
+		templateUrl:'views/home.html',
+		controller:'HomeController',
+		controllerAs:'home'
+    })
+    .otherwise({
+    	redirectTo:'/'
+    });
 }

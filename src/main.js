@@ -1,10 +1,12 @@
-import { Config } from './config';
+import { register } from './register';
+import { config } from './config';
 import { HomeController, HomeService } from './features/home/home';
 
 angular.module('appName', [
 	'ngRoute'
 ])
+.config(config);
 
-.config(Config)
+register('appName')
 .controller('HomeController', HomeController)
-.controller('HomeService', HomeService);
+.service('HomeService', HomeService);
