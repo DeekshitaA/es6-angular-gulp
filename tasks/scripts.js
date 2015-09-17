@@ -23,12 +23,12 @@ gulp.task('scripts:lint', function() {
 
 gulp.task('scripts:bundle', function() {
     return browserify({
-            entries: 'src/main.js',
+            entries: 'src/index.js',
             transform: [babelify]
         })
         .transform(babelify)
         .bundle()
-        .pipe(source('main.js'))
+        .pipe(source('index.js'))
         .pipe(buffer())
         .pipe(plumber({
             handleError: function (err) {
