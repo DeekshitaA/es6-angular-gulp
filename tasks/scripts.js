@@ -9,11 +9,7 @@ var concat = require('gulp-concat');
 
 module.exports = function() {
     return gulp.src('src/**/*.js')
-        .pipe(plumber({
-            handleError: function (err) {
-                this.emit('end');
-            }
-        }))
+        .pipe(plumber())
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(jshint.reporter('fail'))
@@ -22,6 +18,6 @@ module.exports = function() {
             .pipe(traceur())
             .pipe(concat('index.js'))
             .pipe(uglify())
-        .pipe(sourcemaps.write('maps'))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist/js'));
 };

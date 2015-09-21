@@ -7,15 +7,11 @@ var concat = require('gulp-concat');
 
 module.exports = function(){
 	return gulp.src('src/**/*.scss')
-		.pipe(plumber({
-	        handleError: function (err) {
-	            this.emit('end');
-	        }
-	    }))
+		.pipe(plumber())
 	    .pipe(sourcemaps.init())
 		.pipe(sass())
 		.pipe(concat('main.css'))
 		.pipe(minifyCss())
-		.pipe(sourcemaps.write('maps'))
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('dist/css'));
 };
