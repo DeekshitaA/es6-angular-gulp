@@ -3,5 +3,6 @@
 boiler plate for angular written in ES6, with gulp builds.
 
 - run ``` gulp ``` to build
+- run ``` gulp --skipTests ``` to build without testing
 - run ``` gulp watch ``` to build incrementally
 - run ``` gulp serve ``` to build incrementally and serve locally
